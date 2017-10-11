@@ -1,7 +1,26 @@
-﻿[
-  {"number": "1","Question": "В каком треугольнике все углы равны 60 град?","answers": ["прямоугольный","равнобедренный","равносторонний"],"true_answer": "3"},
-  {"number": "2","Question": "Сколько биссектрис в прямоугольном треугольнике?","answers": ["1","2","3"],"true_answer": "3"},
-  {"number": "3","Question": "Чему равна сумма углов треугольника?","answers": ["180","280","360"],"true_answer": "1"},
-  {"number": "4","Question": "Чему равен sin30 ?","answers": ["0,3","0,5","1"],"true_answer": "2"},
-  {"number": "5","Question": "Чему равен tan45 ?","answers": ["2","0,5","1"],"true_answer": "3"}
-]
+[{
+  "number": "1",
+  "Question": "Mera dlin?",
+  "answers": ["mm","kg","H"],
+  "true_answer": "mm"
+}, {
+  "number": "2",
+  "Question": "7*9?",
+  "answers": ["65","63","68"],
+  "true_answer": "63"
+}, {
+  "number": "3",
+  "Question": "Summa uglov triangle?",
+  "answers": ["180","280","360"],
+  "true_answer": "180"
+}, {
+  "number": "4",
+  "Question": "Chemu raven sin30 ?",
+  "answers": ["0,3","0,5","1"],
+  "true_answer": "0,5"
+}, {
+  "number": "5",
+  "Question": "Chemu raven tan45 ?",
+  "answers": ["2","0,5","1"],
+  "true_answer": "1"
+}]

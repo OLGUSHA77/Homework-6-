@@ -1,5 +1,12 @@
 <?php
-$fileList = glob("*.json");
+$dir = 'tests';
+if (is_dir($dir))
+{
+    $fileList = scandir($dir);
+    array_shift($fileList); // удаляем из массива '.'
+    array_shift($fileList); // удаляем из массива '..'
+}
+
 $num = 1;
 
 if (isset($_GET['text'])){
@@ -10,16 +17,17 @@ if (isset($_GET['text'])){
 
 <html>
     <body>
-        <h2>СПИСОК ТЕСТОВ</h2><br>
+        <h2>Список тестов</h2>
+        <p>Выберите тест</p>
         <form action="test.php"  method="GET">
-            <p>Выберите тест</p>
+            <ol>
             <?php foreach ($fileList as $file) {
-                echo '<label><input type="radio" name="status" value="' .$num.'">'.$file.'</label>' .PHP_EOL;
+                echo '<li><input type="radio" name="status" value="' .$num.'">'.$file.'</li>';
                 $num = $num + 1;
-            }
-            ?>
+            }?>
+            </ol>
         <input type="submit" value="Пройти тест"><br>
         </form>
-        <h2><a href="admin.php">Администратор</a></h2>
+        <a href="admin.php">Загрузка тестов</a>
     </body>
 </html>

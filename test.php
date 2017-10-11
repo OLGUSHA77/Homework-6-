@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html>
-<body>
 <form action="results.php" method="GET">
-    <?php
 
-    $fileList = glob("*.json");
+    <?php
+    $dir = 'tests';
+    $fileList = scandir($dir);
+    array_shift($fileList); // удаляем из массива '.'
+    array_shift($fileList); // удаляем из массива '..'
+
     if (isset($_GET['status']))
     {
         $n = (int)$_GET['status'];
         $n = $n - 1;
         $curFileTest = $fileList[$n];
+        $fulPathFileTest = 'tests/' . $curFileTest;
 
-        if (!file_exists($curFileTest)) {
-            echo "Файл с именем" . $curFileTest . "не существует!";
+        if (!file_exists($fulPathFileTest)) {
+            echo "Файл с именем " . $curFileTest . "не существует!";
         }
     }
-    $num = 1;
-    ?>
-    Имя файла: <input type="TEXT" name="nameFileTest" value="<?=$curFileTest?>"><br>
-    <?php
 
-    $data = json_decode(file_get_contents($curFileTest),true);
-    foreach ($data as $ket=>$value) {
-        echo 'ВОПРОС #' . $value['number'] . ' ' . $value['Question'] . '<br>';
-        foreach ($value['answers'] as $item)
-        echo '<label><input type="radio" value="' . $item . '" name="question' . $num . '">'. $item . '</label><br>';
+    echo 'Имя файла:<input type="TEXT" name="nameFileTest" value="' . $curFileTest . '"><br>';
+
+    $file = file_get_contents($curFileTest);
+    $dataJSON = json_decode($file,true);
+    $num = 1;
+    foreach ($dataJSON as $item)
+    {
+        echo "ВОПРОС #" . $item['number'] . ' ' . $item['Question'] . '<br>';
+        foreach ($item['answers'] as $answer)
+        echo '<label><input type="radio" value="' . $answer . '" name="question' . $num . '">'. $answer . '</label><br>';
         $num = $num + 1;
     }
-    ?>
+?>
     <br><input type="submit" value="Готово">
 </form>
-</body>
-</html>
+
 
 
 

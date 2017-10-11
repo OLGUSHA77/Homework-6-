@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2e56c8bc-d061-444d-8243-82181ddb797b" name="netology" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="D:\ProjectsPHP" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
