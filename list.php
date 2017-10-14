@@ -9,8 +9,8 @@ if (is_dir($dir))
 
 $num = 1;
 
-if (isset($_GET['text'])) {
-    echo $_GET[‘text’];
+if (isset($_GET['text']) && $_GET['text']==true) {
+    echo "Вы ответили не на все вопросы. Попробуйте еще раз!";
 }
 ?>
 

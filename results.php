@@ -1,7 +1,8 @@
 <?php
+const countQuestion = 5;
 $massAnswer = [];
 $massTrueAnswer = [];
-if (isset($_GET))
+if (isset($_GET) && count($_GET) >= countQuestion)
 {
     foreach ($_GET as $key=>$item)
     {
@@ -11,7 +12,7 @@ if (isset($_GET))
     }
 }
 else {
-    header("Location: list.php?text=\"Вы ответили не на все вопросы. Попробуйте еще раз\"");
+    header("Location: list.php?text=true");
 }
 //echo "<pre>";
 //var_dump($massAnswer);
