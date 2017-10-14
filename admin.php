@@ -10,14 +10,19 @@ if ((isset($_FILES['fileTest']['name'])) && (!empty ($_FILES['fileTest']['name']
     }
 
     if (isset($_FILES['fileTest']['name'])) {
-        $ext = pathinfo($_FILES['fileTest']['name'], PATHINFO_EXTENSION);
 
-        if ($ext != 'json') {
-            echo "Неверное расширение файла!";
-            exit;
+        $opt1 = PATHINFO_EXTENSION;
+        $opt2 = PATHINFO_FILENAME;
+        $ext = pathinfo($_FILES['fileTest']['name'], $opt1);
+        $name = pathinfo($_FILES['fileTest']['name'], $opt2);
+        $str = '/^(?:[a-z0-9_-]|\.(?!\.))+$/iD';
+
+        if (((!ctype_alnum($name)) || (!preg_match($str, $name))) || ($ext != 'json')) {
+            exit("Неверное имя или расширение файла!");
         }
         else {
             if (move_uploaded_file($_FILES['fileTest']['tmp_name'], $fileDes)) {
+
                 echo $_POST['fio'] . ", файл загружен";
             }
             else {

@@ -1,0 +1,26 @@
+[{
+    "number": "1",
+    "Question": "2*9",
+    "answers": ["15","18","11"],
+    "true_answer": "18"
+}, {
+    "number": "2",
+    "Question": "exp(2,5)",
+    "answers": ["32","64","16"],
+    "true_answer": "32"
+}, {
+    "number": "3",
+    "Question": "exp(10,6)",
+    "answers": ["1 000 000","10 000 000","100 000"],
+    "true_answer": "1 000 000"
+}, {
+    "number": "4",
+    "Question": "ln 1",
+    "answers": ["0","10","1"],
+    "true_answer": "0"
+}, {
+    "number": "5",
+    "Question": "exp(-25,2)",
+    "answers": ["-625","125","625"],
+    "true_answer": "625"
+}]

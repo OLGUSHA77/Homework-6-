@@ -9,9 +9,8 @@ if (is_dir($dir))
 
 $num = 1;
 
-if (isset($_GET['text'])){
-    $message = $_GET['text'];
-    echo $message;
+if (isset($_GET['text'])) {
+    echo $_GET[‘text’];
 }
 ?>
 
