@@ -14,14 +14,17 @@
         $fulPathFileTest = 'tests/' . $curFileTest;
 
         if (!file_exists($fulPathFileTest)) {
-            echo "Файл с именем " . $curFileTest . "не существует!";
+            http_response_code(404);
+            echo "Файл с именем " . $curFileTest . " не существует!";
+            exit(1);
+        }
+        else {
+            $file = file_get_contents($fulPathFileTest);
+            $dataJSON = json_decode($file,true);
         }
     }
-
     echo 'Имя файла:<input type="TEXT" name="nameFileTest" value="' . $curFileTest . '"><br>';
 
-    $file = file_get_contents($curFileTest);
-    $dataJSON = json_decode($file,true);
     $num = 1;
     foreach ($dataJSON as $item)
     {
